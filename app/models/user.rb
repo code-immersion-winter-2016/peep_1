@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :tweets
+  has_many :realtionships
+  has_many :friends through :relationship
 
   validates :name , presence: true
   validates :username , presence: true , uniqueness: true
-  
+
 end
