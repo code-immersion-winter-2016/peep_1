@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :realtionships
-  has_many :friends through :relationship
+  has_many :friends, through: :relationships
 
   validates :name , presence: true
   validates :username , presence: true , uniqueness: true
 
+  has_many :inverse_relationships, class_name: "Relationship", foreign_key: "friend_id"
+    has_many :inverse_friends, through: :inverse_relationships, source: :user
 end

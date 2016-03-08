@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :tweets
   resources :profiles, only: [:index, :show ]
-
+  resources :relationships
     root "tweets#index"
 
   devise_for :users
