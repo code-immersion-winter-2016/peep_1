@@ -48,7 +48,11 @@ class TweetsController < ApplicationController
           end
         end
     end
+
+#STRONG params BEGIN
+
     private
+
     def set_tweet
       @tweet= Tweet.find(params[ :id])
     end
@@ -56,4 +60,6 @@ class TweetsController < ApplicationController
  def tweet_params
    params.require(:tweet).permit(:message, :user_id)
  end
+
+ #STRONG params END
 end
